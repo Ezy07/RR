@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+
+public class PuzzleHandler : MonoBehaviour
+{
+    //완료할 퍼즐 리스트(
+    public List<GameObject> CheckPuzzle;
+
+    private bool IsAllTrue = true; //모두 true인지 확인용
+
+    private void IsDone()
+    {
+        if(CheckPuzzle.Count > 0)
+        {
+            //모든 퍼즐이 해결되었는지 확인
+            for (int i = 0; i < CheckPuzzle.Count; i++)
+            {
+                if (CheckPuzzle[i].TryGetComponent<EndCheckPuzzle>(out var function))
+                {
+                    if (!function.IsDone)
+                    {
+                        IsAllTrue = false;
+                        break;
+                    }
+                    else
+                    {
+                        IsAllTrue = true;
+                    }
+                }
+                else
+                {
+                    Debug.Log("퍼즐의 마지막 오브젝트가 아닙니다.");
+                    break;
+                }
+            }
+
+            //퍼즐 해결 여부에 따른 기능 수행
+            if (IsAllTrue)  //해결시
+            {
+                Debug.Log("퍼즐 모두 해결");
+            }
+            else            //미해결시
+            {
+                Debug.Log("미해결 퍼즐 존재");
+            }
+        }
+        else
+        {
+            Debug.Log("해결할 퍼즐이 없습니다.");
+        }
+        
+    }
+
+    private void Update()
+    {
+        IsDone();
+    }
+}
