@@ -7,27 +7,21 @@ public class Sunflower : InteractFunction
     //Field
     #region .
 
-    public float turnSpeed = 20f;
-    public float RayDistance = 20f;
-    public GameObject RayStart;
+    public float rotationAmount = 90f;
+    public float rotationSpeed = 30f;
+    public float RayDistance = 20f; // 반사 사거리
+    public GameObject RayStart; // 레이 발사 지점
 
-    private Vector3 curRotation;
-    private int count;
-    private bool turning = false;
-
+    private bool isRotating = false;
     #endregion
 
     //Override Method
     #region .
-    
-    //해바라기 바라보는 방향 변경 ( Ray 방향 변경 )
+
+    //없음
     public override void CloseInteract()
     {
-        if (!turning)
-        {
-            Debug.Log("Turning");
-            count++;
-        }
+        throw new System.NotImplementedException();
     }
 
     //무기 공격 기능
@@ -66,32 +60,37 @@ public class Sunflower : InteractFunction
 
     #endregion
 
-    //Unity Event
+    //Method
     #region .
-    private void Start()
+    void RotateObject()
     {
-        curRotation = transform.eulerAngles;
-        count = (int)(curRotation.y / 90) + 1;
+        float currentRotation = transform.eulerAngles.y;
+        float targetRotation = currentRotation + rotationAmount;
+
+        // 현재 각도와 목표 각도가 다른 경우에만 회전 시작
+        if (!Mathf.Approximately(Mathf.Repeat(currentRotation, 360f), Mathf.Repeat(targetRotation, 360f)))
+        {
+            isRotating = true;
+            StartCoroutine(RotateCoroutine(targetRotation));
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    System.Collections.IEnumerator RotateCoroutine(float targetRotation)
     {
-        if (count == 5)
+        while (!Mathf.Approximately(Mathf.Repeat(transform.eulerAngles.y, 360f), Mathf.Repeat(targetRotation, 360f)))
         {
-            if (curRotation.y < (count - 1) * 90) { curRotation.y += turnSpeed * Time.deltaTime; turning = true; }
-            else { count = 1; curRotation.y = 0; turning = false; }
-        }
-        else if (count < 5)
-        {
-            if (curRotation.y < (count - 1) * 90) { curRotation.y += turnSpeed * Time.deltaTime; turning = true; }
-            else { turning = false; }
+            // 보간된 회전값 계산
+            float newRotation = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation, rotationSpeed * Time.deltaTime);
+
+            // 회전 적용
+            transform.eulerAngles = new Vector3(0, newRotation, 0);
+
+            yield return null;
         }
 
-        //오브젝트 회전
-        transform.eulerAngles = curRotation;
+        // 회전이 완료된 후에 플래그를 false로 설정
+        isRotating = false;
     }
 
     #endregion
-
 }
