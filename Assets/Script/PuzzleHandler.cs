@@ -54,7 +54,7 @@ public class PuzzleHandler : MonoBehaviour
         
     }
 
-    private void Update()
+    private void OnValidate()
     {
         IsDone();
     }

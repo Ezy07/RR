@@ -14,6 +14,7 @@ public class Zeolite : InteractFunction
 
     public override void EndInteract()
     {
+        Debug.Log(" Done! ");
         if (transform.TryGetComponent<EndCheckPuzzle>(out var function))
         {
             function.IsDone = true;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class InteractFunction : MonoBehaviour
 {
+    public bool InteractableTarget = false;
+
     //E키에 의한 기능
     public abstract void CloseInteract();
 

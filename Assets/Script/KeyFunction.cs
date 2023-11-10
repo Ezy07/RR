@@ -42,7 +42,10 @@ public class KeyFunction : MonoBehaviour
             GameObject target = hit.collider.gameObject;
             if (target.TryGetComponent<InteractFunction>(out var targetfunction))
             {
-                targetfunction.WeaponInteract();
+                if (targetfunction.InteractableTarget)
+                {
+                    targetfunction.WeaponInteract();
+                }
             }
         }
     }

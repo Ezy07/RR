@@ -19,6 +19,8 @@ public class Sunflower : InteractFunction
 
     //Override Method
     #region .
+    
+    //해바라기 바라보는 방향 변경 ( Ray 방향 변경 )
     public override void CloseInteract()
     {
         if (!turning)
@@ -28,11 +30,7 @@ public class Sunflower : InteractFunction
         }
     }
 
-    public override void EndInteract()
-    {
-        throw new System.NotImplementedException();
-    }
-
+    //무기 공격 기능
     public override void WeaponInteract()
     {
         Vector3 RayPos = RayStart.transform.position;
@@ -58,6 +56,12 @@ public class Sunflower : InteractFunction
                 }
             }
         }
+    }
+
+    //없음
+    public override void EndInteract()
+    {
+        throw new System.NotImplementedException();
     }
 
     #endregion
