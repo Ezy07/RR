@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 8562244819176812154}
   - component: {fileID: 5317305468861553659}
   m_Layer: 0
-  m_Name: P_Sunflower
+  m_Name: PuzzleSunflower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
