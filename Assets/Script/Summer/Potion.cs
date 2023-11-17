@@ -14,19 +14,25 @@ public class Potion : InteractFunction
     private Material Mat;
     private double CurAmount;
     private double Amount;
+
+    
     #endregion
 
-    //Override
+    //Override Method
     #region .
 
     public override void CloseInteract()
     {
         Debug.Log("색상 변경");
     }
-
-    public override void EndInteract()
+    public override void BasicFunction()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
+    }
+
+    public override void EndFunction()
+    {
+        throw new NotImplementedException();
     }
 
     public override void WeaponInteract()
@@ -43,6 +49,8 @@ public class Potion : InteractFunction
 
     #endregion
 
+    //Unity Event
+    #region .
     // Start is called before the first frame update
     void Start()
     {
@@ -60,4 +68,6 @@ public class Potion : InteractFunction
         }
         CurAmount = Amount;
     }
+    #endregion
+
 }

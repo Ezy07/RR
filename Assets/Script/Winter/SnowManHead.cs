@@ -13,22 +13,26 @@ public class SnowManHead : InteractFunction
 
     //Override Method
     #region .
+    public override void BasicFunction()
+    {
+        if (transform.localScale.x < 2)
+        {
+            transform.localScale += new Vector3(GrowSize, GrowSize, GrowSize);
+        }
+    }
     public override void CloseInteract()
     {
         throw new System.NotImplementedException();
     }
 
-    public override void EndInteract()
+    public override void EndFunction()
     {
         throw new System.NotImplementedException();
     }
 
     public override void WeaponInteract()
     {
-        if (transform.localScale.x < 2)
-        {
-            transform.localScale += new Vector3(GrowSize, GrowSize, GrowSize);
-        }
+        BasicFunction();
     }
     #endregion
 

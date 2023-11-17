@@ -7,10 +7,10 @@ public class Sunflower : InteractFunction
     //Field
     #region .
 
-    public float rotationAmount = 90f;
-    public float rotationSpeed = 30f;
-    public float RayDistance = 20f; // 반사 사거리
-    public GameObject RayStart; // 레이 발사 지점
+    public float rotationAmount = 90f; //1회 회전량
+    public float rotationSpeed = 30f; //회전 속도
+    public float RayDistance = 20f; //반사 사거리
+    public GameObject RayStart; //레이 발사 지점 (+X축으로)
 
     private bool isRotating = false;
     #endregion
@@ -18,51 +18,64 @@ public class Sunflower : InteractFunction
     //Override Method
     #region .
 
-    //없음
-    public override void CloseInteract()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    //무기 공격 기능
-    public override void WeaponInteract()
+    //기본 기능
+    public override void BasicFunction()
     {
         Vector3 RayPos = RayStart.transform.position;
         Vector3 RayDir = RayStart.transform.forward;
 
         Ray beam = new(RayPos, RayDir);
-
-        if (Physics.Raycast(beam, out RaycastHit hit, RayDistance))
+        if (Physics.Raycast(beam, out RaycastHit hit, RayDistance)) //Ray 발사
         {
             GameObject target = hit.collider.gameObject;
-            if (target.CompareTag("Sunflower"))
+            if (target.CompareTag("Sunflower")) //해바라기
             {
-                if (target.TryGetComponent<InteractFunction>(out var targetfunction))
+                if (target.TryGetComponent<Sunflower>(out var targetfunction))
                 {
-                    targetfunction.WeaponInteract();
+                    targetfunction.BasicFunction();
                 }
             }
-            else if (target.CompareTag("Zeolite"))
+            else if (target.CompareTag("Zeolite"))  //비석
             {
-                if (target.TryGetComponent<InteractFunction>(out var targetfunction))
+                if (target.TryGetComponent<Zeolite>(out var targetfunction))
                 {
-                    targetfunction.EndInteract();
+                    targetfunction.BasicFunction();
                 }
             }
         }
     }
-
+    //무기 공격 기능
+    public override void WeaponInteract()
+    {
+        //빛 위에 있을 경우의 좌클릭 기능
+        if (KeyFunction.instance.OnLight && StartTarget) //빛 위에 있으면
+        {
+            BasicFunction();
+        }
+        //일반적인 좌클릭 기능 (회전)
+        else
+        {
+            if (!isRotating)
+            {
+                RotateObject();
+            }
+        }
+    }
     //없음
-    public override void EndInteract()
+    public override void EndFunction()
     {
         throw new System.NotImplementedException();
     }
-
+    //없음
+    public override void CloseInteract()
+    {
+        throw new System.NotImplementedException();
+    }
     #endregion
 
     //Method
     #region .
-    void RotateObject()
+    private void RotateObject()
     {
         float currentRotation = transform.eulerAngles.y;
         float targetRotation = currentRotation + rotationAmount;
@@ -91,6 +104,5 @@ public class Sunflower : InteractFunction
         // 회전이 완료된 후에 플래그를 false로 설정
         isRotating = false;
     }
-
     #endregion
 }

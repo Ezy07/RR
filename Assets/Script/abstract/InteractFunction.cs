@@ -4,14 +4,28 @@ using UnityEngine;
 
 public abstract class InteractFunction : MonoBehaviour
 {
-    public bool InteractableTarget = false;
+    //Field
+    #region .
 
+    public bool StartTarget = false;
+
+    #endregion
+
+    //Player Interact Function
+    #region .
     //E키에 의한 기능
     public abstract void CloseInteract();
 
     //무기에 의한 기능
     public abstract void WeaponInteract();
+    #endregion
 
-    //마지막 퍼즐의 기능
-    public abstract void EndInteract();
+    //Object Function
+    #region .
+    //퍼즐의 기본 기능
+    public abstract void BasicFunction();
+
+    //퍼즐의 마지막 기능
+    public abstract void EndFunction();
+    #endregion
 }
