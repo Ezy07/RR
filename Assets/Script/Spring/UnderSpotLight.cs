@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class UnderSpotLight : MonoBehaviour
 {
+    //Unity Event
+    #region .
     private void OnTriggerEnter(Collider target)
     {
-        if(target.TryGetComponent<KeyFunction>(out var function))
-        {
-            function.OnLight = true;
-        }
+        KeyFunction.instance.OnLight = true;
     }
 
     private void OnTriggerExit(Collider target)
     {
-        if(target.TryGetComponent<KeyFunction>(out var function))
-        {
-            function.OnLight = false;
-        }
+        KeyFunction.instance.OnLight = false;
     }
+
+    #endregion
+
 }

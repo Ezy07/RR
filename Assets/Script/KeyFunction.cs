@@ -7,10 +7,14 @@ public class KeyFunction : MonoBehaviour
     //Field
     #region .
 
-    public float CloseInteractionRayLength = 20f;
-    public float WeaponInteractionRayLength = 50f;
+    public static KeyFunction instance;
 
     public bool OnLight = false;
+
+    [SerializeField]
+    private float CloseInteractionRayLength = 20f;
+    [SerializeField]
+    private float WeaponInteractionRayLength = 50f;
 
     #endregion
 
@@ -42,10 +46,7 @@ public class KeyFunction : MonoBehaviour
             GameObject target = hit.collider.gameObject;
             if (target.TryGetComponent<InteractFunction>(out var targetfunction))
             {
-                if (targetfunction.InteractableTarget)
-                {
-                    targetfunction.WeaponInteract();
-                }
+                targetfunction.WeaponInteract();
             }
         }
     }
@@ -55,6 +56,14 @@ public class KeyFunction : MonoBehaviour
     //Unity Event
     #region .
 
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -62,11 +71,7 @@ public class KeyFunction : MonoBehaviour
         {
             TryCloseInteract();
         }
-        else if (Input.GetMouseButtonDown(0) && OnLight) // 좌클릭 + 빛의 아래에 있을 시에
-        {
-            TryWeaponInteract();
-        }
-        else if (Input.GetMouseButton(0)) // 테스트 용
+        else if (Input.GetMouseButtonDown(0)) //마우스 좌클릭을 이용한 상호작용
         {
             TryWeaponInteract();
         }
