@@ -8,6 +8,8 @@ public class PuzzleHandler : MonoBehaviour
 {
     //완료할 퍼즐 리스트(
     public List<GameObject> CheckPuzzle;
+    //완료시 기능을 수행할 오브젝트
+    public GameObject TriggerObject;
 
     private bool IsAllTrue = true; //모두 true인지 확인용
 
@@ -40,11 +42,16 @@ public class PuzzleHandler : MonoBehaviour
             //퍼즐 해결 여부에 따른 기능 수행
             if (IsAllTrue)  //해결시
             {
-                Debug.Log("퍼즐 모두 해결");
+                //해결시 수행하는 기능
+                if (TriggerObject.TryGetComponent<InteractFunction>(out var function))
+                {
+                    function.BasicFunction();
+                }
             }
-            else            //미해결시
+            else            
             {
-                Debug.Log("미해결 퍼즐 존재");
+                //미해결시 수행하는 기능
+
             }
         }
         else
@@ -54,7 +61,7 @@ public class PuzzleHandler : MonoBehaviour
         
     }
 
-    private void OnValidate()
+    private void FixedUpdate()
     {
         IsDone();
     }

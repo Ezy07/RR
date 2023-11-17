@@ -12,9 +12,11 @@ public class KeyFunction : MonoBehaviour
     public bool OnLight = false;
 
     [SerializeField]
-    private float CloseInteractionRayLength = 20f;
+    private float CloseInteractionRayLength = 1f;
     [SerializeField]
-    private float WeaponInteractionRayLength = 50f;
+    private float WeaponInteractionRayLength = 2f;
+    [SerializeField]
+    private float OnLightRayDistance = 10f;
 
     #endregion
 
@@ -40,7 +42,17 @@ public class KeyFunction : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
-        if (Physics.Raycast(ray, out RaycastHit hit, WeaponInteractionRayLength))
+        float RayLength;
+        if (OnLight)
+        {
+            RayLength = OnLightRayDistance;
+        }
+        else
+        {
+            RayLength = WeaponInteractionRayLength;
+        }
+
+        if (Physics.Raycast(ray, out RaycastHit hit, RayLength))
         {
             //레이가 충돌시 수행 코드
             GameObject target = hit.collider.gameObject;
