@@ -14,7 +14,7 @@ public class KeyFunction : MonoBehaviour
     [SerializeField]
     private float CloseInteractionRayLength = 1f;
     [SerializeField]
-    private float WeaponInteractionRayLength = 2f;
+    private float ToolInteractionRayLength = 2f;
     [SerializeField]
     private float OnLightRayDistance = 10f;
 
@@ -43,13 +43,14 @@ public class KeyFunction : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
         float RayLength;
+
         if (OnLight)
         {
             RayLength = OnLightRayDistance;
         }
         else
         {
-            RayLength = WeaponInteractionRayLength;
+            RayLength = ToolInteractionRayLength;
         }
 
         if (Physics.Raycast(ray, out RaycastHit hit, RayLength))

@@ -10,7 +10,9 @@ public class Sunflower : InteractFunction
     public float rotationAmount = 90f; //1회 회전량
     public float rotationSpeed = 30f; //회전 속도
     public float RayDistance = 20f; //반사 사거리
+
     public GameObject RayStart; //레이 발사 지점 (+X축으로)
+    public ParticleSystem OnLightParticle;
 
     private bool isRotating = false;
     #endregion
@@ -42,13 +44,17 @@ public class Sunflower : InteractFunction
                     targetfunction.BasicFunction();
                 }
             }
+            else
+            {
+                //타겟이 아닌 경우
+            }
         }
     }
     //무기 공격 기능
     public override void WeaponInteract()
     {
         //빛 위에 있을 경우의 좌클릭 기능
-        if (KeyFunction.instance.OnLight && StartTarget) //빛 위에 있으면
+        if (KeyFunction.instance.OnLight && IsStartTarget) //빛 위에 있으면
         {
             BasicFunction();
         }
@@ -104,5 +110,25 @@ public class Sunflower : InteractFunction
         // 회전이 완료된 후에 플래그를 false로 설정
         isRotating = false;
     }
+    #endregion
+
+    //Unity Event
+    #region .
+
+    private void FixedUpdate()
+    {
+        if (IsStartTarget && KeyFunction.instance.OnLight)
+        {
+            if (!OnLightParticle.isPlaying)
+            {
+                OnLightParticle.Play();
+            }
+        }
+        else
+        {
+            OnLightParticle.Stop();
+        }
+    }
+
     #endregion
 }

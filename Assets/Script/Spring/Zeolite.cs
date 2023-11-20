@@ -1,9 +1,17 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Zeolite : InteractFunction
 {
+    //Field
+    #region .
+
+    public ParticleSystem ParticleSystem;
+
+    #endregion
+
     //Override Method
     #region .
 
@@ -14,6 +22,7 @@ public class Zeolite : InteractFunction
         if (transform.TryGetComponent<EndCheckPuzzle>(out var function))
         {
             function.IsDone = true;
+            ParticleSystem.Play();
         }
     }
 
