@@ -21,12 +21,12 @@ public class Gate : InteractFunction
         throw new System.NotImplementedException();
     }
 
-    public override void CloseInteract()
+    public override void ToolSubInteract()
     {
         throw new System.NotImplementedException();
     }
 
-    public override void WeaponInteract()
+    public override void ToolMainInteract()
     {
         throw new System.NotImplementedException();
     }

@@ -23,7 +23,7 @@ public class KeyFunction : MonoBehaviour
     //Method
     #region .
 
-    void TryCloseInteract()
+    void TryToolSubInteract()
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
@@ -33,12 +33,12 @@ public class KeyFunction : MonoBehaviour
             GameObject target = hit.collider.gameObject;
             if (target.TryGetComponent<InteractFunction>(out var targetfunction))
             {
-                targetfunction.CloseInteract();
+                targetfunction.ToolSubInteract();
             }
         }
     }
 
-    void TryWeaponInteract()
+    void TryToolMainInteract()
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
@@ -59,7 +59,7 @@ public class KeyFunction : MonoBehaviour
             GameObject target = hit.collider.gameObject;
             if (target.TryGetComponent<InteractFunction>(out var targetfunction))
             {
-                targetfunction.WeaponInteract();
+                targetfunction.ToolMainInteract();
             }
         }
     }
@@ -80,13 +80,13 @@ public class KeyFunction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) //E키를 이용한 상호작용
+        if (Input.GetMouseButtonDown(0)) //Tool의 기본 기능
         {
-            TryCloseInteract();
+            TryToolMainInteract();
         }
-        else if (Input.GetMouseButtonDown(0)) //마우스 좌클릭을 이용한 상호작용
+        else if (Input.GetMouseButtonDown(1)) //Tool의 서브 기능
         {
-            TryWeaponInteract();
+            TryToolSubInteract();
         }
     }
 

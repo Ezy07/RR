@@ -51,7 +51,7 @@ public class Sunflower : InteractFunction
         }
     }
     //무기 공격 기능
-    public override void WeaponInteract()
+    public override void ToolMainInteract()
     {
         //빛 위에 있을 경우의 좌클릭 기능
         if (KeyFunction.instance.OnLight && IsStartTarget) //빛 위에 있으면
@@ -73,7 +73,7 @@ public class Sunflower : InteractFunction
         throw new System.NotImplementedException();
     }
     //없음
-    public override void CloseInteract()
+    public override void ToolSubInteract()
     {
         throw new System.NotImplementedException();
     }
