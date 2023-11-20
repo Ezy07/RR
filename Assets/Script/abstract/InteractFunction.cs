@@ -14,10 +14,10 @@ public abstract class InteractFunction : MonoBehaviour
     //Player Interact Function
     #region .
     //E키에 의한 기능
-    public abstract void CloseInteract();
+    public abstract void ToolSubInteract();
 
     //무기에 의한 기능
-    public abstract void WeaponInteract();
+    public abstract void ToolMainInteract();
     #endregion
 
     //Object Function

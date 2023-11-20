@@ -20,7 +20,7 @@ public class SnowManHead : InteractFunction
             transform.localScale += new Vector3(GrowSize, GrowSize, GrowSize);
         }
     }
-    public override void CloseInteract()
+    public override void ToolSubInteract()
     {
         throw new System.NotImplementedException();
     }
@@ -30,7 +30,7 @@ public class SnowManHead : InteractFunction
         throw new System.NotImplementedException();
     }
 
-    public override void WeaponInteract()
+    public override void ToolMainInteract()
     {
         BasicFunction();
     }
