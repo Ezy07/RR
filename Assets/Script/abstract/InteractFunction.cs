@@ -7,7 +7,7 @@ public abstract class InteractFunction : MonoBehaviour
     //Field
     #region .
 
-    public bool StartTarget = false;
+    public bool IsStartTarget = false;
 
     #endregion
 

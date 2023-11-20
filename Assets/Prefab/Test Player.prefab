@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8730880012755471812}
   m_Layer: 0
   m_Name: Test Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.57443404, z: 0, w: 0.81855094}
   m_LocalPosition: {x: 496.05, y: 1.124, z: 500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2878016468917115565}
@@ -126,9 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67489996581d0dd43aae373506726bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CloseInteractionRayLength: 3
-  WeaponInteractionRayLength: 50
   OnLight: 0
+  CloseInteractionRayLength: 1
+  ToolInteractionRayLength: 2
+  OnLightRayDistance: 10
 --- !u!1 &3712630047253319297
 GameObject:
   m_ObjectHideFlags: 0
