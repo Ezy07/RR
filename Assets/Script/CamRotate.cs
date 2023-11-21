@@ -24,10 +24,6 @@ public class CamRotate : MonoBehaviour
         x = Input.GetAxis("Mouse X");
         y = Input.GetAxis("Mouse Y");
 
-    }
-
-    private void FixedUpdate()
-    {
         angle.x += sensitivity * x * Time.deltaTime;
         angle.y += sensitivity * y * Time.deltaTime;
 

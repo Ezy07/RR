@@ -24,11 +24,17 @@ public class Potion : InteractFunction
     [Header("Color", order = 2),Space(5)]
     public Color[] colors;
     public int StartColorIndex = 0;
-    public float ColorChangeSpeed = 0.1f;
+    public float ColorChangeTime = 2.0f;
 
+    private float CurColorTimer = 0.0f;
     private Color CurrentColor;
     private Color TargetColor;
     private bool IsChanging = false;
+
+    //정답
+    [Header("Answear", order = 3), Space(5)]
+    public float ContentAmount;
+    public int ColorIndex;
 
     #endregion
 
@@ -118,21 +124,34 @@ public class Potion : InteractFunction
 
         if(CurrentColor != colors[StartColorIndex])
         {
+            float timer;
+
             //색상이 변할 때
             IsChanging = true;
 
+            CurColorTimer += 1 * Time.deltaTime;
+            timer = Mathf.MoveTowards(0, 1, CurColorTimer / ColorChangeTime);
+
             //색상 처리
-            CurrentColor = Color.Lerp(CurrentColor, TargetColor, Mathf.Clamp01(ColorChangeSpeed * Time.deltaTime));
+            CurrentColor = Color.Lerp(CurrentColor, TargetColor, timer);
             Mat.SetColor("_Color", CurrentColor);
         }
         else
         {
             //색상이 변하지 않을 때
             IsChanging = false;
+            CurColorTimer = 0.0f;
             CurrentColor = TargetColor;
         }
 
-        
+        //조건 만족시 퍼즐 확인
+        if(CurrentContentAmount == ContentAmount && CurrentColor == colors[ColorIndex])
+        {
+            if(this.TryGetComponent<EndCheckPuzzle>(out EndCheckPuzzle target))
+            {
+                target.IsDone = true;
+            }
+        }
     }
     #endregion
 
