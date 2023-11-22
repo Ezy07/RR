@@ -25,7 +25,5 @@ public abstract class InteractFunction : MonoBehaviour
     //퍼즐의 기본 기능
     public abstract void BasicFunction();
 
-    //퍼즐의 마지막 기능
-    public abstract void EndFunction();
     #endregion
 }

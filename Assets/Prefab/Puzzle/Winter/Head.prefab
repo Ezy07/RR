@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1169736857425938937}
   - component: {fileID: 1169736857425938941}
   - component: {fileID: 1169736857425938936}
-  - component: {fileID: 1169736857425938940}
+  - component: {fileID: 6589865298488703143}
   m_Layer: 0
   m_Name: Head
   m_TagString: SnowManHead
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2d6fcfb902b837146b8032898a60157c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,7 +134,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1169736857425938940
+--- !u!114 &6589865298488703143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,4 +147,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsStartTarget: 0
-  GrowSize: 0.001
+  SizeList:
+  - 0.2
+  - 0.4
+  - 0.6
+  - 0.8
+  - 1
+  StartSizeIndex: 1
+  ChangeSpeed: 0.5
+  CurSize: 0

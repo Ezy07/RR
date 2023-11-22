@@ -67,11 +67,7 @@ public class Sunflower : InteractFunction
             }
         }
     }
-    //없음
-    public override void EndFunction()
-    {
-        throw new System.NotImplementedException();
-    }
+
     //없음
     public override void ToolSubInteract()
     {

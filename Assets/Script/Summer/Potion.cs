@@ -75,13 +75,6 @@ public class Potion : InteractFunction
         throw new NotImplementedException();
     }
 
-    public override void EndFunction()
-    {
-        throw new NotImplementedException();
-    }
-
-    
-
     #endregion
 
     //Unity Event
@@ -130,7 +123,7 @@ public class Potion : InteractFunction
             IsChanging = true;
 
             CurColorTimer += 1 * Time.deltaTime;
-            timer = Mathf.MoveTowards(0, 1, CurColorTimer / ColorChangeTime);
+            timer = Mathf.MoveTowards(0, 1, CurColorTimer / ColorChangeTime * Time.deltaTime);
 
             //색상 처리
             CurrentColor = Color.Lerp(CurrentColor, TargetColor, timer);

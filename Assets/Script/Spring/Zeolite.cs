@@ -33,11 +33,6 @@ public class Zeolite : InteractFunction
         throw new System.NotImplementedException();
     }
     //없음
-    public override void EndFunction()
-    {
-        throw new System.NotImplementedException();
-    }
-    //없음
     public override void ToolMainInteract()
     {
         throw new System.NotImplementedException();
