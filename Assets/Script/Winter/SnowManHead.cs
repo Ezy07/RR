@@ -10,6 +10,8 @@ public class SnowManHead : InteractFunction
     //도형 색상
 
     //도형 사이즈
+    public Transform Target;
+
     public float[] SizeList;
     public int StartSizeIndex = 1;
     public float ChangeSpeed = 2.0f;
@@ -56,7 +58,7 @@ public class SnowManHead : InteractFunction
     {
         CurSize = SizeList[StartSizeIndex];
         TargetSize = CurSize;
-        transform.localScale = new Vector3(CurSize, CurSize, CurSize);
+        Target.transform.localScale = new Vector3(CurSize, CurSize, CurSize);
     }
 
     private void Update()
@@ -66,7 +68,7 @@ public class SnowManHead : InteractFunction
             IsChanging = true;
 
             CurSize = Mathf.MoveTowards(CurSize, TargetSize, ChangeSpeed * Time.deltaTime);
-            transform.localScale = new Vector3(CurSize, CurSize, CurSize);
+            Target.transform.localScale = new Vector3(CurSize, CurSize, CurSize);
         }
         else
         {
