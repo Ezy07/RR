@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8413992042266004746}
-  - component: {fileID: 6790916575861368899}
+  - component: {fileID: 7082753395910471835}
   m_Layer: 0
   m_Name: Summer Puzzle 3
   m_TagString: Untagged
@@ -34,9 +34,10 @@ Transform:
   - {fileID: 2962218683243249920}
   - {fileID: 6788429989873118290}
   - {fileID: 4693216159498971511}
+  - {fileID: 573295676634577803}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6790916575861368899
+--- !u!114 &7082753395910471835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,9 +46,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 173207628316570064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed8508057b84c141a9b1e4652b07364, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d4b6eb1f1883474ebb33253fb40ff8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnswerColorIndexList: 010000000200000003000000
   CheckPuzzle:
   - {fileID: 2959466998762507096}
   - {fileID: 6791279529126399602}
@@ -362,6 +364,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8413992042266004746}
     m_Modifications:
+    - target: {fileID: -4855661811130652824, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+      propertyPath: colors.Array.data[4].b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1305883699301654, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
       propertyPath: m_Name
       value: POTION D
@@ -420,4 +426,66 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1305883699301654, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
   m_PrefabInstance: {fileID: 6790261717473805156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8828139512209907256
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8413992042266004746}
+    m_Modifications:
+    - target: {fileID: 1167563795474668358, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_Name
+      value: Answer Potion 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.187
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.688
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.95858043
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.28482202
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000000014901159
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000000037252899
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -33.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+--- !u!4 &573295676634577803 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9040725002832225715, guid: 1880836e709ba7b4c89d4f0821f11d80, type: 3}
+  m_PrefabInstance: {fileID: 8828139512209907256}
   m_PrefabAsset: {fileID: 0}

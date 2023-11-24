@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4691668723939124306}
-  - component: {fileID: 4126421338425993619}
+  - component: {fileID: 8004601946116782880}
   m_Layer: 0
   m_Name: Summer Puzzle 1
   m_TagString: Untagged
@@ -199,9 +199,10 @@ Transform:
   m_Children:
   - {fileID: 7182759869431464540}
   - {fileID: 2163895949060928388}
+  - {fileID: 372147878459298163}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4126421338425993619
+--- !u!114 &8004601946116782880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,9 +211,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5451471047635096838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed8508057b84c141a9b1e4652b07364, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d4b6eb1f1883474ebb33253fb40ff8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnswerColorIndexList: 02000000
   CheckPuzzle:
   - {fileID: 2165802997889153500}
   TriggerObject: {fileID: 0}
@@ -268,6 +270,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5410885797596408389, guid: d027d4bce170c4abf8619a7d7980440e, type: 3}
+      propertyPath: CurrentColorIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041857184314976775, guid: d027d4bce170c4abf8619a7d7980440e, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -282,4 +292,66 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1999239547283070, guid: d027d4bce170c4abf8619a7d7980440e, type: 3}
   m_PrefabInstance: {fileID: 2164366744567799714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7379859079656596111
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4691668723939124306}
+    m_Modifications:
+    - target: {fileID: 4094627247561516789, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_Name
+      value: Answer Potion 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+--- !u!4 &372147878459298163 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7151896792381273084, guid: 1e42c84f26de4c5429a85bff79ef3fa7, type: 3}
+  m_PrefabInstance: {fileID: 7379859079656596111}
   m_PrefabAsset: {fileID: 0}

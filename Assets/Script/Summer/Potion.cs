@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Potion : InteractFunction
 {
@@ -23,18 +24,13 @@ public class Potion : InteractFunction
     //색상
     [Header("Color", order = 2),Space(5)]
     public Color[] colors;
-    public int StartColorIndex = 0;
+    public int CurrentColorIndex = 0;
     public float ColorChangeTime = 2.0f;
 
     private float CurColorTimer = 0.0f;
     private Color CurrentColor;
     private Color TargetColor;
     private bool IsChanging = false;
-
-    //정답
-    [Header("Answear", order = 3), Space(5)]
-    public float ContentAmount;
-    public int ColorIndex;
 
     #endregion
 
@@ -53,21 +49,21 @@ public class Potion : InteractFunction
     #region .
     public override void ToolMainInteract()
     {
-        if (!IsRising)
-        {
-            TargetContentAmount += IncreaseContentAmount;
-            if (TargetContentAmount > 1f)
-            {
-                TargetContentAmount = 0.0f;
-            }
-        }
+        //if (!IsRising)
+        //{
+        //    TargetContentAmount += IncreaseContentAmount;
+        //    if (TargetContentAmount > 1f)
+        //    {
+        //        TargetContentAmount = 0.0f;
+        //    }
+        //}
     }
     public override void ToolSubInteract()
     {
         if (!IsChanging)
         {
-            StartColorIndex = (StartColorIndex + 1) % colors.Length;
-            TargetColor = colors[StartColorIndex];
+            CurrentColorIndex = (CurrentColorIndex + 1) % colors.Length;
+            TargetColor = colors[CurrentColorIndex];
         }
     }
     public override void BasicFunction()
@@ -88,8 +84,8 @@ public class Potion : InteractFunction
         TargetContentAmount = CurrentContentAmount;
 
         //색상 초기화
-        CurrentColor = colors[StartColorIndex];
-        TargetColor = colors[StartColorIndex];
+        CurrentColor = colors[CurrentColorIndex];
+        TargetColor = colors[CurrentColorIndex];
         Mat.SetColor("_Color", TargetColor);
     }
 
@@ -115,7 +111,7 @@ public class Potion : InteractFunction
             CurrentContentAmount = TargetContentAmount;
         }
 
-        if(CurrentColor != colors[StartColorIndex])
+        if(CurrentColor != colors[CurrentColorIndex])
         {
             float timer;
 
@@ -135,15 +131,6 @@ public class Potion : InteractFunction
             IsChanging = false;
             CurColorTimer = 0.0f;
             CurrentColor = TargetColor;
-        }
-
-        //조건 만족시 퍼즐 확인
-        if(CurrentContentAmount == ContentAmount && CurrentColor == colors[ColorIndex])
-        {
-            if(this.TryGetComponent<EndCheckPuzzle>(out EndCheckPuzzle target))
-            {
-                target.IsDone = true;
-            }
         }
     }
     #endregion

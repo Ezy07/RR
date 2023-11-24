@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4008155813552842}
   - component: {fileID: 4114446235085834932}
   - component: {fileID: 8141424494713920562}
-  - component: {fileID: 5482761834174357630}
   m_Layer: 0
   m_Name: POTION B
   m_TagString: Untagged
@@ -79,23 +78,10 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 0}
   - {r: 0, g: 1, b: 0, a: 0}
   - {r: 0, g: 0, b: 1, a: 0}
-  StartColorIndex: 0
-  ColorChangeTime: 2
-  ContentAmount: 0.5
-  ColorIndex: 1
---- !u!114 &5482761834174357630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280056767771472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1416c797d18109e49b190827d495e152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDone: 0
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  CurrentColorIndex: 0
+  ColorChangeTime: 0.5
 --- !u!1 &1388567134444530
 GameObject:
   m_ObjectHideFlags: 0
