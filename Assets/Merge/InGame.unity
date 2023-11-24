@@ -37193,6 +37193,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 954232903682212042, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 954232903682212042, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 954232903682212042, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 2074575507336932051, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.68
@@ -37241,6 +37253,26 @@ PrefabInstance:
       propertyPath: CheckPuzzle.Array.data[0]
       value: 
       objectReference: {fileID: 418836328}
+    - target: {fileID: 6818408231986627036, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818408231986627036, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818408231986627036, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818408231986627036, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818408231986627036, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7735763740214723012, guid: 78ba6b9d0d7699146bb8f7b42ade03ed, type: 3}
       propertyPath: m_Name
       value: Spring Puzzle 1
@@ -37339,9 +37371,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 61960228118584184, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 350098720226859038, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243961182919390331, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411556993976067171, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672761916087516948, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672761916087516948, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265344289551775455, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990228110060944860, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 4890565767222894826, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
       propertyPath: m_Name
       value: Autumn Puzzle 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893203579409476594, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770193627894081271, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605850313597695316, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 8950733263288812258, guid: af1b1a5748e367441b225320104e4bf1, type: 3}
       propertyPath: m_LocalPosition.x
