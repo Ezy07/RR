@@ -164,7 +164,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 124
   m_CollisionDetection: 2
 --- !u!153 &69059632584725911
 ConfigurableJoint:
@@ -181,7 +181,7 @@ ConfigurableJoint:
   m_ConnectedAnchor: {x: 174.1932, y: 4, z: 210.97443}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 2
+  m_XMotion: 1
   m_YMotion: 0
   m_ZMotion: 0
   m_AngularXMotion: 0
@@ -189,7 +189,7 @@ ConfigurableJoint:
   m_AngularZMotion: 0
   m_LinearLimitSpring:
     spring: 0
-    damper: 0
+    damper: 10
   m_LinearLimit:
     limit: 6.1
     bounciness: 0
