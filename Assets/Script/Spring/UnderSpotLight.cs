@@ -10,7 +10,7 @@ public class UnderSpotLight : MonoBehaviour
     {
         if (target.CompareTag("Player"))
         {
-            KeyFunction.instance.OnLight = true;
+            Staff.instance.OnLight = true;
         }
     }
 
@@ -18,7 +18,7 @@ public class UnderSpotLight : MonoBehaviour
     {
         if (target.CompareTag("Player"))
         {
-            KeyFunction.instance.OnLight = false;
+            Staff.instance.OnLight = false;
         }
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4746313003632134}
   - component: {fileID: 33997451717812156}
   - component: {fileID: 23979378781870662}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: GPVFX_Bottle_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4922847831481894}
   - component: {fileID: 33240287379788224}
   - component: {fileID: 23528012572970906}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: GPVFX_Bottle_A_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 4300842022568384}
   - component: {fileID: 33677858643843968}
   - component: {fileID: 23417888277854334}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4824235866227746}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 4173680155241510}
   - component: {fileID: 2605345135207163323}
   - component: {fileID: 5410885797596408389}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: POTION A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 6520145822251211772}
   - component: {fileID: 9041857184314976775}
   - component: {fileID: 1856154637669017245}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
