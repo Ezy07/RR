@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class TestFunction : MonoBehaviour
 {
+    public float NormalLength = 3.0f, OnLightLength = 10f;
+
     public void MainInteraction()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 2))
+        float RayLength;
+        if (PlayerState.instance.PlayerIsOnLight)
+        {
+            RayLength = OnLightLength;
+        }
+        else
+        {
+            RayLength = NormalLength;
+        }
+
+        if (Physics.Raycast(ray, out RaycastHit hit, RayLength))
         {
             //레이가 충돌시 수행 코드
             GameObject target = hit.collider.gameObject;
@@ -21,9 +33,9 @@ public class TestFunction : MonoBehaviour
 
     public void SubInteraction()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2,0));
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 2))
+        if (Physics.Raycast(ray, out RaycastHit hit, 3))
         {
             //레이가 충돌시 수행 코드
             GameObject target = hit.collider.gameObject;
@@ -43,11 +55,11 @@ public class TestFunction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             MainInteraction();
         }
-        else if (Input.GetMouseButton(1))
+        else if (Input.GetMouseButtonDown(1))
         {
             SubInteraction();
         }

@@ -10,7 +10,7 @@ public class UnderSpotLight : MonoBehaviour
     {
         if (target.CompareTag("Player"))
         {
-            Staff.instance.OnLight = true;
+            PlayerState.instance.PlayerIsOnLight = true;
         }
     }
 
@@ -18,10 +18,9 @@ public class UnderSpotLight : MonoBehaviour
     {
         if (target.CompareTag("Player"))
         {
-            Staff.instance.OnLight = false;
+            PlayerState.instance.PlayerIsOnLight = false;
         }
     }
 
     #endregion
-
 }

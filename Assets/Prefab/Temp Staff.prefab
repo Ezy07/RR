@@ -412,8 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67489996581d0dd43aae373506726bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RayStart: {fileID: 0}
-  OnLight: 0
+  RayStart: {fileID: 2025531007158166820}
   ToolInteractionRayLength: 2
   OnLightRayDistance: 10
 --- !u!1 &4815934736106118073

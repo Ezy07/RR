@@ -8,11 +8,7 @@ public class Staff : MonoBehaviour
 {
     //Field
     #region .
-
-    public static Staff instance;
     public Transform RayStart;
-
-    public bool OnLight = false;
 
     //Setting
     [SerializeField]
@@ -30,7 +26,7 @@ public class Staff : MonoBehaviour
 
         float RayLength;
 
-        if (OnLight)
+        if (PlayerState.instance.PlayerIsOnLight)
         {
             RayLength = OnLightRayDistance;
         }
@@ -51,18 +47,4 @@ public class Staff : MonoBehaviour
     }
 
     #endregion
-
-    //Unity Event
-    #region .
-
-    private void Start()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-    }
-
-    #endregion
-
 }

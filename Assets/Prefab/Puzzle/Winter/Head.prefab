@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1169736857425938936}
   - component: {fileID: 6589865298488703143}
   - component: {fileID: 1399516043938163252}
-  m_Layer: 29
+  m_Layer: 0
   m_Name: Head
   m_TagString: SnowManHead
   m_Icon: {fileID: 0}
