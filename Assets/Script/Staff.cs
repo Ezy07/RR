@@ -46,5 +46,20 @@ public class Staff : MonoBehaviour
         }
     }
 
+    public void SubInteraction()
+    {
+        Ray ray = new(RayStart.position, RayStart.forward);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, ToolInteractionRayLength))
+        {
+            //레이가 충돌시 수행 코드
+            GameObject target = hit.collider.gameObject;
+            if (target.TryGetComponent<InteractFunction>(out var targetfunction))
+            {
+                targetfunction.ToolSubInteract();
+            }
+        }
+    }
+
     #endregion
 }
