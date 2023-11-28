@@ -7,13 +7,21 @@ public class Sunflower : InteractFunction
     //Field
     #region .
 
+    //Function
     public float rotationAmount = 90f; //1회 회전량
     public float rotationSpeed = 30f; //회전 속도
-    public float RayDistance = 20f; //반사 사거리
+    public float RayDistance = 10f; //반사 사거리
 
-    public GameObject RayStart; //레이 발사 지점 (+X축으로)
+    //Ray
+    public Transform BeamStart; //레이 발사 지점 (+X축으로)
+    public float RayDuration = 3.0f;
+    private LineRenderer BeamLineRenderer;
+    private bool isRaying = false;
+
+    //Effect
     public ParticleSystem OnLightParticle;
 
+    //Check
     private bool isRotating = false;
     #endregion
 
@@ -23,49 +31,61 @@ public class Sunflower : InteractFunction
     //기본 기능
     public override void BasicFunction()
     {
-        Vector3 RayPos = RayStart.transform.position;
-        Vector3 RayDir = RayStart.transform.forward;
-
-        Ray beam = new(RayPos, RayDir);
-        if (Physics.Raycast(beam, out RaycastHit hit, RayDistance)) //Ray 발사
+        //빛의 반사가 무한히 발생하지 않도록
+        if (!isRaying)
         {
-            GameObject target = hit.collider.gameObject;
-            if (target.CompareTag("Sunflower")) //해바라기
+            Transform rayTransform = BeamStart;
+
+            Ray beam = new(rayTransform.position, rayTransform.TransformDirection(Vector3.forward));
+            BeamLineRenderer.SetPosition(0, BeamStart.position);
+
+            if (Physics.Raycast(beam, out RaycastHit hit, RayDistance)) //Ray 발사
             {
-                if (target.TryGetComponent<Sunflower>(out var targetfunction))
+                GameObject target = hit.collider.gameObject;
+                Debug.Log(hit.point);
+                if (target.CompareTag("Sunflower")) //해바라기
                 {
-                    targetfunction.BasicFunction();
+                    if (target.TryGetComponent<Sunflower>(out var targetfunction))
+                    {
+                        BeamLineRenderer.SetPosition(1, hit.point);
+                        targetfunction.BasicFunction();
+                    }
                 }
-            }
-            else if (target.CompareTag("Zeolite"))  //비석
-            {
-                if (target.TryGetComponent<Zeolite>(out var targetfunction))
+                else if (target.CompareTag("Zeolite"))  //비석
                 {
-                    targetfunction.BasicFunction();
+                    if (target.TryGetComponent<Zeolite>(out var targetfunction))
+                    {
+                        BeamLineRenderer.SetPosition(1, hit.point);
+                        targetfunction.BasicFunction();
+                    }
                 }
-            }
-            else
-            {
-                //타겟이 아닌 경우
+                else
+                {
+                    //타겟이 아닌 경우
+                    BeamLineRenderer.SetPosition(1, rayTransform.position + (rayTransform.forward * RayDistance));
+                }
+                StartCoroutine(BeamController());
             }
         }
     }
+
     //무기 공격 기능
     public override void ToolMainInteract()
     {
-        //빛 위에 있을 경우의 좌클릭 기능
-        if (PlayerState.instance.PlayerIsOnLight && IsStartTarget) //빛 위에 있으면
+        if (!isRotating && !isRaying)
         {
-            BasicFunction();
-        }
-        //일반적인 좌클릭 기능 (회전)
-        else
-        {
-            if (!isRotating)
+            if (PlayerState.instance.PlayerIsOnLight && IsStartTarget) //빛 위에 있으면
+            {
+                BasicFunction();
+            }
+            //일반적인 좌클릭 기능 (회전)
+            else
             {
                 RotateObject();
             }
         }
+        //빛 위에 있을 경우의 좌클릭 기능
+        
     }
 
     //없음
@@ -77,6 +97,14 @@ public class Sunflower : InteractFunction
 
     //Method
     #region .
+
+    private IEnumerator BeamController()
+    {
+        BeamLineRenderer.enabled = true; isRaying = true;
+        yield return new WaitForSeconds(RayDuration);
+        BeamLineRenderer.enabled = false; isRaying = false;
+    }
+
     private void RotateObject()
     {
         float currentRotation = transform.eulerAngles.y;
@@ -110,6 +138,11 @@ public class Sunflower : InteractFunction
 
     //Unity Event
     #region .
+
+    private void Start()
+    {
+        BeamLineRenderer = this.GetComponent<LineRenderer>();
+    }
 
     private void FixedUpdate()
     {

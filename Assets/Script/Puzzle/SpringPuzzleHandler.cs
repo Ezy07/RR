@@ -4,12 +4,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class PuzzleHandler : MonoBehaviour
+public class SpringPuzzleHandler : MonoBehaviour
 {
     //완료할 퍼즐 리스트(
     public List<GameObject> CheckPuzzle;
+    public List<GameObject> DisablePuzzleAfterSolved;
     //완료시 기능을 수행할 오브젝트
     public GameObject TriggerObject;
+
 
     private bool IsAllTrue = true; //모두 true인지 확인용
 
@@ -42,11 +44,30 @@ public class PuzzleHandler : MonoBehaviour
             //퍼즐 해결 여부에 따른 기능 수행
             if (IsAllTrue)  //해결시
             {
+                for(int i = 0; i < DisablePuzzleAfterSolved.Count; i++)
+                {
+                    GameObject target = DisablePuzzleAfterSolved[i];
+
+                    if (target != null)
+                    {
+                        if (target.TryGetComponent<Sunflower>(out var targetFunc))
+                        {
+                            Destroy(targetFunc);
+                        }
+                        else if (CheckPuzzle[i].TryGetComponent<Zeolite>(out var targetFunc2))
+                        {
+                            Destroy(targetFunc2);
+                        }
+                    }
+                }
+
                 //해결시 수행하는 기능
                 if (TriggerObject.TryGetComponent<InteractFunction>(out var function))
                 {
                     function.BasicFunction();
                 }
+
+                Destroy(this);
             }
             else            
             {

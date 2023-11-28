@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Staff : MonoBehaviour
+public class StaffFunction : MonoBehaviour
 {
     //Field
-    #region .
     public Transform RayStart;
 
     //Setting
@@ -16,10 +15,7 @@ public class Staff : MonoBehaviour
     [SerializeField]
     private float OnLightRayDistance = 10f;
 
-    #endregion
-
     //Method
-    #region .
     public void MainInteraction()
     {
         Ray ray = new(RayStart.position, RayStart.forward);
@@ -61,6 +57,4 @@ public class Staff : MonoBehaviour
             }
         }
     }
-
-    #endregion
 }
