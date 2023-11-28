@@ -19,15 +19,11 @@ public class CamRotate : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         x = Input.GetAxis("Mouse X");
         y = Input.GetAxis("Mouse Y");
 
-    }
-
-    private void FixedUpdate()
-    {
         angle.x += sensitivity * x * Time.deltaTime;
         angle.y += sensitivity * y * Time.deltaTime;
 

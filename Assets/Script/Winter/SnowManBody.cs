@@ -8,8 +8,8 @@ public class SnowManBody : MonoBehaviour
     //Field
     #region .
 
-    public float min, max;  // 머리의 크기
     public Vector3 destination; //머리의 위치
+    public float AnswearSize;
 
     private Transform Head; // 머리 위치변경 및 기능 삭제
     private float curTime = 0;  //Lerp를 위한 진행도
@@ -22,9 +22,16 @@ public class SnowManBody : MonoBehaviour
 
     private bool IsSizeRight(Collision target)
     {
-        if (min <= target.transform.localScale.x && target.transform.localScale.x <= max)
+        if(target.transform.TryGetComponent<SnowManHead>(out var function))
         {
-            return true;
+            if (function.CurSize == AnswearSize)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {

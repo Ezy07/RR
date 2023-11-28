@@ -38,8 +38,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Interactable Object
+  - Tool
   - 
   m_SortingLayers:
   - name: Default

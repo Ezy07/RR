@@ -54,7 +54,7 @@ public class Sunflower : InteractFunction
     public override void ToolMainInteract()
     {
         //빛 위에 있을 경우의 좌클릭 기능
-        if (KeyFunction.instance.OnLight && IsStartTarget) //빛 위에 있으면
+        if (PlayerState.instance.PlayerIsOnLight && IsStartTarget) //빛 위에 있으면
         {
             BasicFunction();
         }
@@ -67,11 +67,7 @@ public class Sunflower : InteractFunction
             }
         }
     }
-    //없음
-    public override void EndFunction()
-    {
-        throw new System.NotImplementedException();
-    }
+
     //없음
     public override void ToolSubInteract()
     {
@@ -117,7 +113,7 @@ public class Sunflower : InteractFunction
 
     private void FixedUpdate()
     {
-        if (IsStartTarget && KeyFunction.instance.OnLight)
+        if (IsStartTarget && PlayerState.instance.PlayerIsOnLight)
         {
             if (!OnLightParticle.isPlaying)
             {
