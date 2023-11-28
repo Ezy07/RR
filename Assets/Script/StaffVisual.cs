@@ -11,7 +11,6 @@ public class StaffVisual : MonoBehaviour
     //Visual
     public List<MeshRenderer> CrystalRenderers;
     public List<Material> MaterialList;
-    private int curOrder = 0;
 
     //Effect
     public List<GameObject> ParticleSystemList;
@@ -22,14 +21,20 @@ public class StaffVisual : MonoBehaviour
     /// </summary>
     public void ChangeVisual()
     {
-        ParticleSystemList[curOrder].SetActive(false);
-        curOrder++;
+        //기존 기능 제거
+        int cnt = PlayerState.instance.PlayerStageCounter;
+        ParticleSystemList[cnt].SetActive(false);
+
+        cnt++;
+
+        //다음 기능 추가
         for (int i = 0; i < CrystalRenderers.Count; i++)
         {
-            CrystalRenderers[i].material = MaterialList[curOrder];
+            CrystalRenderers[i].material = MaterialList[cnt];
 
         }
-        ParticleSystemList[curOrder].SetActive(true);
+        ParticleSystemList[cnt].SetActive(true);
+        PlayerState.instance.PlayerStageCounter = cnt;
     }
 
     //Unity Event

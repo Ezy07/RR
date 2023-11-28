@@ -11,6 +11,8 @@ public class PlayerState : MonoBehaviour
 
     public bool PlayerIsOnLight = false;
 
+    public int PlayerStageCounter = 0;
+
     #endregion
 
     //Unity Event
