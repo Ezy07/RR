@@ -8,11 +8,12 @@ TagManager:
   - Zeolite
   - SnowBall
   - SnowManHead
+  - Staff
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bullet
   - Water
   - UI
   - 

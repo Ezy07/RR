@@ -41,6 +41,7 @@ public class Staff : MonoBehaviour
             GameObject target = hit.collider.gameObject;
             if (target.TryGetComponent<InteractFunction>(out var targetfunction))
             {
+                //±â´É
                 targetfunction.ToolMainInteract();
             }
         }
