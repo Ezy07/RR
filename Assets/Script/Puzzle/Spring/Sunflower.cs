@@ -81,21 +81,17 @@ public class Sunflower : InteractFunction
             if (PlayerState.instance.PlayerIsOnLight && IsStartTarget) //빛 위에 있으면
             {
                 BasicFunction();
+                SoundManager.instance.soundList[1].Play();
             }
             //일반적인 좌클릭 기능 (회전)
             else
             {
                 RotateObject();
+                SoundManager.instance.soundList[1].Play();
             }
         }
         //빛 위에 있을 경우의 좌클릭 기능
         
-    }
-
-    //없음
-    public override void ToolSubInteract()
-    {
-        throw new System.NotImplementedException();
     }
     #endregion
 

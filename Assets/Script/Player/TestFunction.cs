@@ -31,21 +31,6 @@ public class TestFunction : MonoBehaviour
         }
     }
 
-    public void SubInteraction()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2,0));
-
-        if (Physics.Raycast(ray, out RaycastHit hit, 3))
-        {
-            //레이가 충돌시 수행 코드
-            GameObject target = hit.collider.gameObject;
-            if (target.TryGetComponent<InteractFunction>(out var targetfunction))
-            {
-                targetfunction.ToolSubInteract();
-            }
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -58,14 +43,6 @@ public class TestFunction : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             MainInteraction();
-        }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            SubInteraction();
-        }
-        else
-        {
-
         }
     }
 }

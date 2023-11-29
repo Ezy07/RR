@@ -16,8 +16,6 @@ public class StaffFunction : MonoBehaviour
     [SerializeField]
     private LayerMask InteractableLayer;
 
-    private AudioSource AudioSetting;
-
     //LineRenderer
     private LineRenderer Beam;
 
@@ -61,7 +59,6 @@ public class StaffFunction : MonoBehaviour
             {
                 //기능
                 targetfunction.ToolMainInteract();
-                AudioSetting.Play();
 
                 //봄 전용
                 if (PlayerState.instance.PlayerStageCounter == 0)
@@ -75,26 +72,10 @@ public class StaffFunction : MonoBehaviour
         }
     }
 
-    public void SubInteraction()
-    {
-        Ray ray = new(RayStart.position, RayStart.forward);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, ToolInteractionRayLength))
-        {
-            //레이가 충돌시 수행 코드
-            GameObject target = hit.collider.gameObject;
-            if (target.TryGetComponent<InteractFunction>(out var targetfunction))
-            {
-                targetfunction.ToolSubInteract();
-            }
-        }
-    }
-
     //Unity Event
     private void Start()
     {
         Beam = this.GetComponent<LineRenderer>();
-        AudioSetting = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()

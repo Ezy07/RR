@@ -16,9 +16,4 @@ public class SummerWall : InteractFunction
     {
         throw new System.NotImplementedException();
     }
-
-    public override void ToolSubInteract()
-    {
-        throw new System.NotImplementedException();
-    }
 }

@@ -28,12 +28,8 @@ public class SnowManHead : InteractFunction
         if (!IsChanging && IsGrabbed)
         {
             BasicFunction();
+            SoundManager.instance.soundList[1].Play();
         }
-    }
-
-    public override void ToolSubInteract()
-    {
-
     }
 
     public override void BasicFunction()
