@@ -13,19 +13,21 @@ public class SnowManHead : InteractFunction
     [HideInInspector]
     public float CurSize;
 
-    private bool IsGrabbed
-    {
-        get { return IsGrabbed; }
-        set { IsGrabbed = value; }
-    }
+    public bool IsGrabbed = false;
     private bool IsChanging = false;
     private float TargetSize;
 
     //Method
+
+    public void IsGrab(bool value)
+    {
+        IsGrabbed = value;
+    }
+
     //Override Method
     public override void ToolMainInteract()
     {
-        if (!IsChanging && IsGrabbed)
+        if (!IsChanging && !IsGrabbed)
         {
             BasicFunction();
             SoundManager.instance.soundList[1].Play();
