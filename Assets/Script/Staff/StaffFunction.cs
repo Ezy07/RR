@@ -13,21 +13,19 @@ public class StaffFunction : MonoBehaviour
     [SerializeField]
     private Transform BeamPos;
 
+    [SerializeField]
+    private LayerMask InteractableLayer;
+
+    private AudioSource AudioSetting;
 
     //LineRenderer
     private LineRenderer Beam;
 
-    //Controller ForceGrab
-    [Header("Int",order = 2)]
-    private int isGrab = -1;
-
     //Setting
     [Header("Float", order = 3)]
     public float BeamDuration = 1.0f;
-    [SerializeField]
-    private float ToolInteractionRayLength = 2f;
-    [SerializeField]
-    private float OnLightRayDistance = 10f;
+    public float ToolInteractionRayLength = 2f;
+    public float OnLightRayDistance = 10f;
     
 
     //Method
@@ -52,18 +50,10 @@ public class StaffFunction : MonoBehaviour
         {
             RayLength = ToolInteractionRayLength;
         }
+        
 
-        if (Physics.Raycast(ray, out RaycastHit hit, RayLength))
+        if (Physics.Raycast(ray, out RaycastHit hit, RayLength,InteractableLayer))
         {
-            //º½ Àü¿ë
-            if(PlayerState.instance.PlayerStageCounter == 0)
-            {
-                //ºö ÀÌÆåÆ®
-                Beam.SetPosition(1, hit.point);
-
-                //ºö È°¼ºÈ­
-                StartCoroutine(BeamController());
-            }
 
             //·¹ÀÌ°¡ Ãæµ¹½Ã ¼öÇà ÄÚµå
             GameObject target = hit.collider.gameObject;
@@ -71,6 +61,16 @@ public class StaffFunction : MonoBehaviour
             {
                 //±â´É
                 targetfunction.ToolMainInteract();
+                AudioSetting.Play();
+
+                //º½ Àü¿ë
+                if (PlayerState.instance.PlayerStageCounter == 0)
+                {
+                    //ºö ÀÌÆåÆ®
+                    Beam.SetPosition(1, hit.point);
+                    //ºö È°¼ºÈ­
+                    StartCoroutine(BeamController());
+                }
             }
         }
     }
@@ -90,39 +90,15 @@ public class StaffFunction : MonoBehaviour
         }
     }
 
-    public void WhichControllerForceGrab()
-    {
-        ControllerState Controller = ControllerState.instance;
-        if (isGrab < 0)
-        {
-            if (Controller.isLeftControllerHovering)
-            {
-                Controller.Linteractor.useForceGrab = true;
-                isGrab = 0;
-            }
-            else if (Controller.isRightContorllerHovering)
-            {
-                Controller.Rinteractor.useForceGrab = true;
-                isGrab = 1;
-            }
-        }
-        else
-        {
-            if (isGrab == 0)
-            {
-                Controller.Linteractor.useForceGrab = false;
-            }
-            else if (isGrab == 1)
-            {
-                Controller.Rinteractor.useForceGrab= false;
-            }
-            isGrab = -1;
-        }
-    }
-
     //Unity Event
     private void Start()
     {
         Beam = this.GetComponent<LineRenderer>();
+        AudioSetting = GetComponent<AudioSource>();
+    }
+
+    private void FixedUpdate()
+    {
+        Beam.SetPosition(0, BeamPos.position);
     }
 }

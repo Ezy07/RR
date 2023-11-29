@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIsOnLight: 0
+  PlayerStageCounter: 0
 --- !u!1 &274052038362334412
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,52 +772,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1298893649064230302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6228010665081363743}
-  - component: {fileID: 8314699289912818188}
-  m_Layer: 0
-  m_Name: Controller State
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6228010665081363743
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298893649064230302}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2328467366134373867}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8314699289912818188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298893649064230302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b47902845c788154daa7e61e2f88196d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Linteractor: {fileID: 0}
-  Rinteractor: {fileID: 0}
 --- !u!1 &1568887647549541707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,7 +2388,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 2147549186
+    m_Bits: 2
   m_AttachTransform: {fileID: 6251391743657152132}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -2442,7 +2397,7 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8314699289912818188}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ControllerState, Assembly-CSharp
         m_MethodName: set_isLeftControllerHovering
         m_Mode: 6
@@ -2457,7 +2412,7 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8314699289912818188}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ControllerState, Assembly-CSharp
         m_MethodName: set_isLeftControllerHovering
         m_Mode: 6
@@ -2626,10 +2581,19 @@ LineRenderer:
         value: 1
         inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 34
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -4095,7 +4059,6 @@ Transform:
   m_Children:
   - {fileID: 2565373258742522926}
   - {fileID: 6632250357030456964}
-  - {fileID: 6228010665081363743}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -161.089, z: 0}
 --- !u!143 &64507307805700808
@@ -6610,8 +6573,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 2147549186
-  m_AttachTransform: {fileID: 0}
+    m_Bits: 65536
+  m_AttachTransform: {fileID: 1998557576981838554}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -6619,7 +6582,7 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8314699289912818188}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ControllerState, Assembly-CSharp
         m_MethodName: set_isRightContorllerHovering
         m_Mode: 6
@@ -6634,7 +6597,7 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8314699289912818188}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ControllerState, Assembly-CSharp
         m_MethodName: set_isRightContorllerHovering
         m_Mode: 6
@@ -6803,10 +6766,19 @@ LineRenderer:
         value: 1
         inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 34
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4

@@ -42,7 +42,6 @@ public class Sunflower : InteractFunction
             if (Physics.Raycast(beam, out RaycastHit hit, RayDistance)) //Ray 발사
             {
                 GameObject target = hit.collider.gameObject;
-                Debug.Log(hit.point);
                 if (target.CompareTag("Sunflower")) //해바라기
                 {
                     if (target.TryGetComponent<Sunflower>(out var targetfunction))
@@ -64,6 +63,11 @@ public class Sunflower : InteractFunction
                     //타겟이 아닌 경우
                     BeamLineRenderer.SetPosition(1, rayTransform.position + (rayTransform.forward * RayDistance));
                 }
+                StartCoroutine(BeamController());
+            }
+            else
+            {
+                BeamLineRenderer.SetPosition(1, rayTransform.position + (rayTransform.forward * RayDistance));
                 StartCoroutine(BeamController());
             }
         }

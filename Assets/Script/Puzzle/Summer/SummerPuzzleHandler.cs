@@ -34,6 +34,16 @@ public class SummerPuzzleHandler : MonoBehaviour
         Destroy(this);
     }
 
+    private IEnumerator OpenDoor()
+    {
+        yield return new WaitForSeconds(2);
+        if (TriggerObject.TryGetComponent<InteractFunction>(out var function))
+        {
+            function.BasicFunction();
+            IsDone = true;
+        }
+    }
+
     private bool CheckAnswers(List<GameObject> objects)
     {
         //정답 리스트 복사
@@ -67,12 +77,7 @@ public class SummerPuzzleHandler : MonoBehaviour
             //퍼즐이 정답인지 확인
             if (CheckAnswers(CheckPuzzle))
             {
-                if (TriggerObject.TryGetComponent<InteractFunction>(out var function))
-                {
-                    function.BasicFunction();
-                    IsDone = true;
-                }
-
+                StartCoroutine(OpenDoor());
                 StartCoroutine(DestroyFunction());
             }
         }

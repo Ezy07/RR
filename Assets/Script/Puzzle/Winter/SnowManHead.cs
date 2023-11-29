@@ -19,6 +19,11 @@ public class SnowManHead : InteractFunction
     [HideInInspector]
     public float CurSize;
 
+    private bool IsGrabbed
+    {
+        get { return IsGrabbed; }
+        set { IsGrabbed = value; }
+    }
     private bool IsChanging = false;
     private float TargetSize;
 
@@ -33,7 +38,7 @@ public class SnowManHead : InteractFunction
     #region .
     public override void ToolMainInteract()
     {
-        if (!IsChanging)
+        if (!IsChanging && IsGrabbed)
         {
             BasicFunction();
         }

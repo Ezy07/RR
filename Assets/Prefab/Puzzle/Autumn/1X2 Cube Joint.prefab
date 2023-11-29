@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3546075016235573703}
   - component: {fileID: 4879032911094373664}
   - component: {fileID: 1849625477929293536}
-  m_Layer: 29
+  m_Layer: 28
   m_Name: 1X2 Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,10 +149,7 @@ MonoBehaviour:
   IsStartTarget: 0
   MinX: 0
   MaxX: 0
-  MinY: 0
-  MaxY: 0
-  MinZ: 0
-  MaxZ: 0
+  controller: {fileID: 0}
 --- !u!1 &7961619286062700369
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5019179564458333919}
-  m_Layer: 29
+  m_Layer: 28
   m_Name: 1X2 Cube Joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
