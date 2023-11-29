@@ -688,6 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CheckPuzzle:
   - {fileID: 0}
+  DisablePuzzleAfterSolved: []
   TriggerObject: {fileID: 2916078527344709197}
 --- !u!1 &1382644213645962605
 GameObject:
