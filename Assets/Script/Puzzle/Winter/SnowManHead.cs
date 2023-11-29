@@ -5,13 +5,7 @@ using UnityEngine;
 public class SnowManHead : InteractFunction
 {
     //Field
-    #region .
-
-    //도형 색상
-
     //도형 사이즈
-    public Transform Target;
-
     public float[] SizeList;
     public int StartSizeIndex = 1;
     public float ChangeSpeed = 2.0f;
@@ -27,15 +21,8 @@ public class SnowManHead : InteractFunction
     private bool IsChanging = false;
     private float TargetSize;
 
-    #endregion
-
     //Method
-    #region .
-
-    #endregion
-
     //Override Method
-    #region .
     public override void ToolMainInteract()
     {
         if (!IsChanging && IsGrabbed)
@@ -46,7 +33,7 @@ public class SnowManHead : InteractFunction
 
     public override void ToolSubInteract()
     {
-        
+
     }
 
     public override void BasicFunction()
@@ -55,15 +42,13 @@ public class SnowManHead : InteractFunction
         TargetSize = SizeList[StartSizeIndex];
     }
 
-    #endregion
-
     //Unity Event
     #region .
     private void Start()
     {
         CurSize = SizeList[StartSizeIndex];
         TargetSize = CurSize;
-        Target.transform.localScale = new Vector3(CurSize, CurSize, CurSize);
+        this.transform.localScale = new Vector3(CurSize, CurSize, CurSize);
     }
 
     private void Update()
@@ -73,13 +58,12 @@ public class SnowManHead : InteractFunction
             IsChanging = true;
 
             CurSize = Mathf.MoveTowards(CurSize, TargetSize, ChangeSpeed * Time.deltaTime);
-            Target.transform.localScale = new Vector3(CurSize, CurSize, CurSize);
+            this.transform.localScale = new Vector3(CurSize, CurSize, CurSize);
         }
         else
         {
             IsChanging = false;
         }
     }
-
     #endregion
 }

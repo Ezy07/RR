@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class SpringPuzzleHandler : MonoBehaviour
+public class WinterPuzzleHandler : MonoBehaviour
 {
     //완료할 퍼즐 리스트(
     public List<GameObject> CheckPuzzle;
@@ -17,7 +15,7 @@ public class SpringPuzzleHandler : MonoBehaviour
 
     private void IsDone()
     {
-        if(CheckPuzzle.Count > 0)
+        if (CheckPuzzle.Count > 0)
         {
             //모든 퍼즐이 해결되었는지 확인
             for (int i = 0; i < CheckPuzzle.Count; i++)
@@ -44,34 +42,32 @@ public class SpringPuzzleHandler : MonoBehaviour
             //퍼즐 해결 여부에 따른 기능 수행
             if (IsAllTrue)  //해결시
             {
-                for(int i = 0; i < DisablePuzzleAfterSolved.Count; i++)
+                for (int i = 0; i < DisablePuzzleAfterSolved.Count; i++)
                 {
                     GameObject target = DisablePuzzleAfterSolved[i];
 
-                    if (target != null && target.TryGetComponent<Sunflower>(out var targetFunc))
+                    if (target != null && target.TryGetComponent<SnowManHead>(out var targetFunc))
                     {
                         Destroy(targetFunc);
                     }
                 }
 
-                for(int j = 0; j < CheckPuzzle.Count; j++)
+                for (int j = 0; j < CheckPuzzle.Count; j++)
                 {
                     GameObject target = CheckPuzzle[j];
-                    if (target != null && target.TryGetComponent<Zeolite>(out var targetFunc))
+
+                    if (target != null && target.TryGetComponent<SnowManBody>(out var targetFunc))
                     {
                         Destroy(targetFunc);
                     }
                 }
 
                 //해결시 수행하는 기능
-                if (TriggerObject.TryGetComponent<InteractFunction>(out var function))
-                {
-                    function.BasicFunction();
-                }
+                Destroy(TriggerObject);
 
                 Destroy(this);
             }
-            else            
+            else
             {
                 //미해결시 수행하는 기능
 
@@ -81,7 +77,7 @@ public class SpringPuzzleHandler : MonoBehaviour
         {
             Debug.Log("해결할 퍼즐이 없습니다.");
         }
-        
+
     }
 
     private void FixedUpdate()
