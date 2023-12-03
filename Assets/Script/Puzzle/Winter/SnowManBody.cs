@@ -33,9 +33,15 @@ public class SnowManBody : MonoBehaviour
 
     private IEnumerator HeadAttach(Collision target)
     {
+        if(target.gameObject.TryGetComponent<SnowManHead>(out var function))
+        {
+            function.IsDone = true;
+        }
+
+        //충돌 위치 지정
         Head = target.transform;
         XRGrabInteractable grabFunction = target.gameObject.GetComponent<XRGrabInteractable>();
-        Destroy(grabFunction);
+        Destroy(grabFunction); Destroy(target.rigidbody);
 
         float curT = 0f;
         float FinishingT = 2f;
@@ -49,8 +55,7 @@ public class SnowManBody : MonoBehaviour
         }
         target.transform.SetParent(transform, true);
         transform.GetComponent<EndCheckPuzzle>().IsDone = true;
-
-        Destroy(target.rigidbody); Destroy(target.collider);
+        Destroy(target.collider);
     }
 
     #endregion

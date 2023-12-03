@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StageTrigger : MonoBehaviour
 {
+    public GameObject StageClearObject;
+
     //Method
     private void RemoveMeshComponents()
     {
@@ -20,6 +22,22 @@ public class StageTrigger : MonoBehaviour
         }
     }
 
+    private IEnumerator PlayerToNextStage()
+    {
+        //스태프 비주얼 변경
+        StaffVisual.instance.ChangeVisual();
+
+        //스테이지 클리어 빔 활성화
+        if(StageClearObject.TryGetComponent<LineRenderer>(out var lineRenderer))
+        {
+            lineRenderer.enabled = true;
+        }
+
+        //기능 수행 후 제거
+        Destroy(gameObject);
+        yield return null;
+    }
+
     //Unity Event
     private void Start()
     {
@@ -31,8 +49,7 @@ public class StageTrigger : MonoBehaviour
     {
         if (target.CompareTag("Player"))
         {
-            StaffVisual.instance.ChangeVisual();
-            Destroy(gameObject);
+            StartCoroutine(PlayerToNextStage());
         }
     }
 }

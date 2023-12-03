@@ -12,6 +12,7 @@ public class AirBlock : InteractFunction
     public List<float> movements;
 
     public Transform RayPos;
+    public float RayDirectionDistanceOffset;
 
     private bool IsMoving = false;
     [SerializeField]
@@ -88,15 +89,12 @@ public class AirBlock : InteractFunction
     private bool IsObstacleInDirection(Vector3 targetPosition, Vector3 dir)
     {
         // 현재 위치에서 진행 방향으로 Ray를 쏴서 물체가 있는지 확인
-        if (Physics.Raycast(RayPos.position, dir, 4f, layerMask))
+        if (Physics.Raycast(RayPos.position, dir, RayDirectionDistanceOffset + 1f, layerMask))
         {
-            // Ray에 물체가 맞으면 장애물이 있음
-            Debug.Log("Obstacle detected in the path");
             return true;
         }
         else
         {
-            // 장애물이 없음
             return false;
         }
         

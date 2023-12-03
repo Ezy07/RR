@@ -678,6 +678,7 @@ MonoBehaviour:
   IsStartTarget: 0
   movements: []
   RayPos: {fileID: 4228384688801654885}
+  RayDirectionDistanceOffset: 2.7
   currentPositionIndex: 0
   IsMoveForward: 1
   layerMask:

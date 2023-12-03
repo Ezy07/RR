@@ -24,7 +24,8 @@ public class StaffFunction : MonoBehaviour
     public float BeamDuration = 1.0f;
     public float ToolInteractionRayLength = 2f;
     public float OnLightRayDistance = 10f;
-    
+
+    private Vector3 initialPosition;    // 초기 위치
 
     //Method
 
@@ -78,7 +79,7 @@ public class StaffFunction : MonoBehaviour
         Beam = this.GetComponent<LineRenderer>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Beam.SetPosition(0, BeamPos.position);
     }

@@ -6,14 +6,21 @@ public class SnowManHead : InteractFunction
 {
     //Field
     //도형 사이즈
+    [Header("Setting")]
     public float[] SizeList;
     public int StartSizeIndex = 1;
     public float ChangeSpeed = 2.0f;
 
+    [Header("Particle")]
+    public ParticleSystem m_Particle;
+
     [HideInInspector]
     public float CurSize;
 
+    //Check
+    [Header("Check")]
     public bool IsGrabbed = false;
+    public bool IsDone = false;
     private bool IsChanging = false;
     private float TargetSize;
 
@@ -27,10 +34,14 @@ public class SnowManHead : InteractFunction
     //Override Method
     public override void ToolMainInteract()
     {
-        if (!IsChanging && !IsGrabbed)
+        if (!IsDone)
         {
-            BasicFunction();
-            SoundManager.instance.soundList[1].Play();
+            if (!IsChanging && !IsGrabbed)
+            {
+                BasicFunction();
+                m_Particle.Play();
+                SoundManager.instance.soundList[1].Play();
+            }
         }
     }
 
@@ -55,12 +66,16 @@ public class SnowManHead : InteractFunction
         {
             IsChanging = true;
 
+            gameObject.layer = 2;
+
             CurSize = Mathf.MoveTowards(CurSize, TargetSize, ChangeSpeed * Time.deltaTime);
             this.transform.localScale = new Vector3(CurSize, CurSize, CurSize);
         }
         else
         {
             IsChanging = false;
+
+            gameObject.layer = 29;
         }
     }
     #endregion
